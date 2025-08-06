@@ -14,3 +14,13 @@ sudo rmmod icmp_bloc
 dmesg | grep "ICMP"  
 dmesg | tail -n 20  
 ```  
+  
+Compare results with iptables  
+Create rule:  
+``` bash  
+sudo iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
+```  
+Remove the rule:  
+``` bash  
+sudo iptables -D INPUT 1
+```
